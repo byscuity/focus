@@ -32,7 +32,7 @@ body {
     
     /* AQUI VOCÊ DEFINE A IMAGEM */
     /* Substitua 'fundo.png' pelo nome exato da sua imagem salva na pasta */
-    background-image: url('fundo.png');
+    background-image: url('steve-busch-vv1Y0AxNMLM-unsplash.jpg');
     background-size: cover;
     background-position: center;
     
@@ -81,7 +81,7 @@ body {
 }
 
 /* 2. Quando o mouse passa no texto, o FUNDO muda (fica nítido) */
-.texto-focus:hover ~ .fundo-imagem {
+.texto-focus:hover ~ .steve-busch-vv1Y0AxNMLM-unsplash.jpg {
     /* Fundo perde o desfoque, perde o zoom e fica nítido */
     filter: blur(0px);
     transform: scale(1);
