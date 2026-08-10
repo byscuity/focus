@@ -1,4 +1,3 @@
-/* Reset básico para garantir que não haja margens indesejadas */
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +7,10 @@
 body {
     width: 100vw;
     height: 100vh;
-    overflow: hidden; /* Impede barras de rolagem */
+    overflow: hidden;
     background-color: #000;
 }
 
-/* Container principal para centralizar tudo */
 .container {
     width: 100%;
     height: 100%;
@@ -22,7 +20,7 @@ body {
     align-items: center;
 }
 
-/* A Imagem de fundo */
+/* Imagem de fundo */
 .fundo-imagem {
     position: absolute;
     top: 0;
@@ -30,58 +28,55 @@ body {
     width: 100%;
     height: 100%;
     
-    /* AQUI VOCÊ DEFINE A IMAGEM */
-    background-image: url('steve-busch-vv1Y0AxNMLM-unsplash.jpg');
+    /* Certifique-se de que o arquivo 'fundo.png' está na mesma pasta */
+    background-image: url('fundo.png');
     background-size: cover;
     background-position: center;
     
-    /* Efeitos iniciais: Desfocado e com Zoom (escala 1.2) */
-    filter: blur(5px);
+    /* Estado inicial: Desfocado e com Zoom */
+    filter: blur(6px) brightness(0.8); /* Adicionei um leve escurecimento pra destacar o texto */
     transform: scale(1.2);
-    transition: all 0.6s ease-in-out;
+    transition: all 0.5s ease-in-out;
     z-index: 1;
 }
 
-/* O Texto "focus" */
+/* O Texto */
 .texto-focus {
     position: relative;
-    z-index: 2; /* Fica acima da imagem */
+    z-index: 2;
     
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     color: #ffffff;
-    font-size: 20vw; /* Tamanho gigante baseado na largura da tela */
+    font-size: 20vw;
     
-    /* Efeitos iniciais: Nítido, sem zoom, sem transparência */
+    /* Estado inicial: Nítido, sem zoom, opaco */
     filter: blur(0px);
     transform: scale(1);
     opacity: 1;
     
-    /* Transição suave para quando o mouse sair */
-    transition: all 0.6s ease-in-out;
-    
-    /* Garantindo que não toque nas bordas superiores e inferiores */
+    transition: all 0.5s ease-in-out;
     line-height: 0.9;
     margin: 0;
     text-align: center;
-    user-select: none; /* Evita que o texto seja selecionado */
+    user-select: none;
+    cursor: pointer; /* Indica que é interativo */
 }
 
 /* ========================================================== */
-/* EFEITO AO PASSAR O MOUSE */
+/* EFEITO AO PASSAR O MOUSE (HOVER) */
 /* ========================================================== */
 
-/* 1. Quando o mouse passa no texto, o texto muda */
+/* 1. Quando o mouse está sobre o texto, o texto muda */
 .texto-focus:hover {
-    /* Texto desfoca, fica transparente e ganha zoom */
     filter: blur(4px);
     opacity: 0.4;
-    transform: scale(1.2);
+    transform: scale(1.3); /* Zoom grande no texto */
 }
 
-/* 2. Quando o mouse passa no texto*/
-.texto-focus:hover ~ .steve-busch-vv1Y0AxNMLM-unsplash.jpg {
-    /* Fundo perde o desfoque, perde o zoom e fica nítido */
-    filter: blur(0px);
-    transform: scale(1);
+/* 2. Quando o mouse está sobre o texto, o FUNDO muda */
+.texto-focus:hover ~ .fundo-imagem {
+    /* O !important garante que o navegador vai aplicar o desfoque zero */
+    filter: blur(0px) brightness(1) !important; 
+    transform: scale(1) !important;
 }
